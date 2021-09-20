@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="main" >
+        <form [formGroup] = "registerForm">
+            <span class="title-align">
+            <div class="Title">
+                <span style="color: #3566b8;">F</span>
+                <span style="color: #34a853; margin-left: 0;">u</span>
+                <span style="color: #fabb05; margin-left: 0;">n</span>
+                <span style="color: #ea4335; margin-left: 0;">d</span>
+                <span style="color: #3566b8; margin-left: 0;">o</span>
+                <span style="color: #fabb05; margin-left: 0;">o</span>
+            </div>
+            </span>
+
+            <h1 class="Heading">
+                Create your Fundoo Account
+            </h1>
+
+            <div class="Body">
+                
+                <div class="part-1" fxLayout="row">
+
+                    <mat-form-field appearance="outline" class="firstname">
+                        <mat-label>First name</mat-label>
+                        <input matInput placeholder="First Name" formControlName="firstName">
+                        <mat-error>First name Is Required !</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="lastname">
+                        <mat-label>Last name</mat-label>
+                        <input matInput placeholder="Last Name" formControlName="lastName">
+                        <mat-error>Last name Is Required !</mat-error>
+                    </mat-form-field>    
+
+                </div>
+
+                <div class="part-2" fxLayout="column" >
+
+                    <mat-form-field appearance="outline" class="Email">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Email" formControlName="email">
+                            <mat-error>Email Is Required !</mat-error>
+                            <mat-hint style="font-size: 14px;">You can use letters, numbers & periods</mat-hint>
+                    </mat-form-field>
+
+                    <div class="button_for_text" >
+                            <button mat-button routerLink="/login">Use my Current email address instead</button>
+                    </div>
+
+                </div>
+                <div class="part-3" fxLayout="row">
+
+                    <mat-form-field appearance="outline" class="password">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" formControlName="password">
+                        <mat-error>Password Is Required !</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="confirmPassword" >
+                        <mat-label>Confirm</mat-label>
+                        <input matInput placeholder="Confirm" formControlName="confirmPassword" >
+                        <mat-error>Confirm Password name Is Required</mat-error>
+                    </mat-form-field>
+                </div>
+                     <mat-hint class="Text">Use 8 or more characters with a mix of letters,numbers & <br> <span class="text_equal" >Symbols</span></mat-hint>
+
+                <section class="checkbox">
+                    <mat-checkbox class="checkbox_margin">show Password</mat-checkbox>
+                </section>
+
+                <div class="part-4"  fxLayout="row" fxLayoutGap="10px">
+                    <div class="button_hover">
+                        <button mat-button routerLink="/login">Sign in instead</button>
+                    </div>
+
+                    <div class="button">
+                        <button type="submit" mat-raised-button color="primary">Next</button>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </form>    
+    </div>
+                <div class= "image" >
+                    <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244">
+                    <div class="img_content">
+                    <p>One account.All of Google <br> <span style="margin-left: 30px;" >working for you</span></p>
+                    </div>
+                </div>
+
+</div>

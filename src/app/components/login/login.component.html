@@ -1,0 +1,59 @@
+<div class="container" fxLayoutAlign="center center">
+        <div class="main"  fxLayoutAlign="center center" >
+
+            <form [formGroup]="loginForm">
+                <span class="title-align" fxLayoutAlign="center center">
+                    <div class="Title">
+                        <span style="color: #3566b8;">F</span>
+                        <span style="color: #34a853; margin-left: 0;">u</span>
+                        <span style="color: #fabb05; margin-left: 0;">n</span>
+                        <span style="color: #ea4335; margin-left: 0;">d</span>
+                        <span style="color: #3566b8; margin-left: 0;">o</span>
+                        <span style="color: #fabb05; margin-left: 0;">o</span>
+                    </div>
+                </span>
+                
+                    <div>
+                        <h3 class="heading" fxLayoutAlign="center center">Sign In</h3>
+                        <h3 class="sub-heading" fxLayoutAlign="center center">Use your Fundoo Account</h3>
+                    </div>
+
+                        <div class="body" fxLayout="column" fxLayoutAlign="space-evenly center" >
+                                <section>
+                                    <mat-form-field appearance="outline" class="email">
+                                        <mat-label>Email or Phone</mat-label>
+                                        <input matInput formControlName="email" value="email" >
+                                        <mat-error>Email Is Required !</mat-error>
+                                    </mat-form-field>
+                                </section>
+
+                                <section>
+                                    <mat-form-field appearance="outline" class="password">
+                                        <mat-label>Password</mat-label>
+                                        <input type="password" matInput formControlName="password" value="password" >
+                                        <mat-error>Password Is Required !</mat-error>
+                                        </mat-form-field>
+                                </section>
+
+                                <section class="button1" fxFlexAlign="start">
+                                <button mat-button routerLink="/forgetpassword">Forget Password ?</button>
+                                </section>
+
+                        </div>
+
+                    <div class="part-2" fxFlexAlign="start">
+                        <h3 class="text_line">Not your computer? Use guest mode to sign in privately</h3>
+                        <button class="button3" mat-button routerLink="/#">Learn more</button>
+                        <br><br><br>
+                    </div>
+
+                        <div>
+                            <div fxFlexAlign="start">
+                            <button class="button4" mat-button routerLink="/registration">Create Account</button>
+                            <button class="button5" type="submit" mat-raised-button color="primary">Submit</button>
+                            </div>
+                    
+                </div> 
+            </form>
+        </div>
+</div>

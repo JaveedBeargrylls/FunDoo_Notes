@@ -1,0 +1,61 @@
+.container{
+    border:1px solid rgb(54, 142, 224) ;
+    margin: 2% auto;
+    border-radius: 10px;
+    align-self: center;
+    width:490px;
+    height: 600px;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center;
+    margin-top: 5%;
+}
+.main{
+    display: flex;
+}
+.title-align{
+    font-size:25px;
+    transform: translate(2px, -40px);
+}
+.heading{
+    font-size:23px;
+    transform: translate(2px, -20px);
+}
+.sub-heading{
+    font-size:18px;
+    transform: translate(2px, -20px);
+    color:rgb(148, 140, 140);
+}
+.email{
+    width: 11cm;
+}
+.password{
+    width: 11cm;
+}
+
+.body{
+    align-items:center;
+    justify-content: center;
+}
+.button1{
+    transform:translate(-17px,-22px);
+    color: rgb(29, 147, 220);
+}
+.button2{
+    transform:translate(-18px,-22px);
+    color: rgb(29, 147, 220);
+}
+.button3{
+    transform:translate(-17px,-22px);
+    color: rgb(29, 147, 220);
+}
+.button4{
+    transform:translate(-17px,0px);
+    color: rgb(29, 147, 220);
+}
+.button5{
+    transform:translate(210px,0px);
+}
+.text_line{
+    color:rgb(148, 140, 140);
+}

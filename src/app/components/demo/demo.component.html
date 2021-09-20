@@ -1,0 +1,59 @@
+
+<div class="container" fxLayoutAlign="center center">
+
+    <div class="main" fxLayoutAlign="center">
+
+        <form [formGroup]="demoForm">
+
+             <span class="title-align" fxLayoutAlign="start center">
+                    <div class="Title"  style="font-size:1cm">
+                        <span style="color: black;">D</span>
+                        <span style="color: blue;">E</span>
+                        <span style="color: pink;">M</span>
+                        <span style="color: green;">O</span>
+                    </div>
+            </span>
+            
+            <div fxLayoutAlign="start">
+                    <h3 class="heading" fxLayoutAlign="start center">Sign In</h3>
+                    <h3 class="sub-heading" fxLayoutAlign="center center" style="color: darkblue">Use your DEMO Account</h3>
+            </div>
+
+            <div class="body" fxLayout="column" fxLayoutAlign="space-evenly center" >
+                    
+                    <section>
+                        <mat-form-field appearance="outline" class="email">
+                            <mat-label>Email or Phone</mat-label>
+                            <input matInput formControlName="email" value="email">
+                        </mat-form-field>
+                    </section>
+
+                    <section class="button1" fxFlexAlign="start">
+                        <button mat-button routerLink="/forgetpassword">Forget Password ?</button>
+                    </section>
+
+                    <section>
+                        <mat-form-field appearance="outline" class="password">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password" value="password">
+                        </mat-form-field>
+                    </section>
+
+                    <section class="button2" fxFlexAlign="start">
+                        <button mat-button routerLink="/resetpassword">Reset Password ?</button>
+                    </section>
+
+            </div>
+
+            <div class="buttons">
+                <button class="button4" mat-button routerLink="/registration">Create Account</button>
+                <button class="button5" type="submit" mat-raised-button color="primary">Submit</button>
+            </div>
+                            
+        </form>
+        
+    <div class="image">
+            <img src="https://freepngimg.com/thumb/one_piece/22969-5-one-piece-logo-photos.png" alt="onepiece logo" width="170" height="50">
+        </div>
+    </div>
+<div>
