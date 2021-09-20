@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="main" >
+<div class="container" fxFlex=60 fxLayout="row" fxFlex.xs=100 fxFlex.sm=80 >
+    <div class="main" fxLayout="column" fxFlex.xs=100 >
         <form [formGroup] = "registerForm">
             <span class="title-align">
             <div class="Title">
@@ -16,9 +16,9 @@
                 Create your Fundoo Account
             </h1>
 
-            <div class="Body">
+            <div class="Body" fxLayoutGap="20px" fxFlex.xs=100px fxLayout.xs="column" fxLayoutGap.xs="0px">
                 
-                <div class="part-1" fxLayout="row">
+                <div class="part-1" fxLayout="row" fxFlexAlign="start center" fxLayoutGap="20px" fxFlex.xs=100 fxLayout.xs="column" fxLayoutGap.xs="0px">
 
                     <mat-form-field appearance="outline" class="firstname">
                         <mat-label>First name</mat-label>
@@ -48,17 +48,17 @@
                     </div>
 
                 </div>
-                <div class="part-3" fxLayout="row">
+                <div class="part-3" fxAlign="start center" fxAlignfxLayout="row" fxLayoutGap="20px" fxLayoutGap.xs="0px">
 
                     <mat-form-field appearance="outline" class="password">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="Password" formControlName="password">
+                        <input type="password" matInput placeholder="Password" formControlName="password">
                         <mat-error>Password Is Required !</mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="confirmPassword" >
                         <mat-label>Confirm</mat-label>
-                        <input matInput placeholder="Confirm" formControlName="confirmPassword" >
+                        <input type="password" class="form-control" matInput placeholder="Confirm" formControlName="confirmPassword" >
                         <mat-error>Confirm Password name Is Required</mat-error>
                     </mat-form-field>
                 </div>
@@ -73,8 +73,8 @@
                         <button mat-button routerLink="/login">Sign in instead</button>
                     </div>
 
-                    <div class="button">
-                        <button type="submit" mat-raised-button color="primary">Next</button>
+                    <div class="button" fxAlign="end" style="margin-left:">
+                        <button (click)="onSubmit()" mat-raised-button color="primary">Next</button>
                     </div>
                     
                 </div>
@@ -83,10 +83,10 @@
 
         </form>    
     </div>
-                <div class= "image" >
-                    <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244">
-                    <div class="img_content">
-                    <p>One account.All of Google <br> <span style="margin-left: 30px;" >working for you</span></p>
+                <div class= "image" fxHide.xs fxLayout="column" fxFlexAlign="auto" fxLayoutAlign="start center">
+                    <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="240" height="240">
+                    <div class="img_content" fxHide.xs fxLayout="column" fxFlexAlign="auto" fxLayoutAlign="start center">
+                    <p style="margin-left: 12px; margin-top: -3px" >One account.All of Google <br> <span style="margin-left: 25px;" >working for you</span></p>
                     </div>
                 </div>
 

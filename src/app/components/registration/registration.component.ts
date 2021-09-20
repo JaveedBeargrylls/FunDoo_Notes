@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../services/userService/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegistrationComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private UserService: UserService) { }
 
   ngOnInit(){
     this.registerForm= this.formBuilder.group({
@@ -20,6 +21,24 @@ export class RegistrationComponent implements OnInit {
       confirmPassword:['',[Validators.required]]
     });
   }
-  get f() { return this.registerForm.controls; }
+
+  onSubmit(){
+    console.log("on submit register function calling ",this.registerForm.value);
+    // requesting the registerfor,
+    let RegistReq={
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password,
+      // confirmPassword:""
+      service:"advacne"
+    }
+
+    console.log(RegistReq)
+      this.UserService.registerUser(RegistReq).subscribe((response:any) => { console.log(response);
+    }, (error:any) => { console.log(error); 
+    })
+}
+    get f() { return this.registerForm.controls; }
 
 }
