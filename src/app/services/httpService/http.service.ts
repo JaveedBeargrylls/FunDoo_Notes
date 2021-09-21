@@ -9,12 +9,16 @@ import { environment } from '../../../environments/environment'
 export class HttpService {
 
   Baseurl = environment.BaseUrl
+  // Token=localStorage.getItem("token")
+  token:any
     
   //  url: '/user/userSignUp'
    
   constructor(private router: Router,private http: HttpClient) { }
   Post(url:any,reqdata:any){
-    let httpOptions={ headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
+    this.token=localStorage.getItem("token")
+   
+    let httpOptions={ headers: new HttpHeaders({ 'Content-Type': 'application/json','Authorization':this.token}) };
     
     let FullURL= this.Baseurl + url
     return this.http.post(FullURL,reqdata)
