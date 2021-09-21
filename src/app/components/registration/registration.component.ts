@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/userService/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,7 @@ import { UserService } from '../../services/userService/user.service';
 export class RegistrationComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private UserService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private UserService: UserService, private SnackBar: MatSnackBar) { }
 
   ngOnInit(){
     this.registerForm= this.formBuilder.group({
@@ -30,14 +31,17 @@ export class RegistrationComponent implements OnInit {
       lastName: this.registerForm.value.lastName,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
-      // confirmPassword:""
+      confirmPassword:this.registerForm.value.confirmPassword,
       service:"advacne"
     }
 
     console.log(RegistReq)
       this.UserService.registerUser(RegistReq).subscribe((response:any) => { console.log(response);
-    }, (error:any) => { console.log(error); 
-    })
+      // this.SnackBar.open('PizzaPartyComponent', { duration: this.durationInSeconds * 1000, });
+      this.SnackBar.open("registration Successfull ", ' ', { duration: 1000,} );}, 
+      
+      (error:any) => { console.log(error)})
+      this.SnackBar.open("registration UnSuccessfull ", ' ', { duration: 1000,} );
 }
     get f() { return this.registerForm.controls; }
 

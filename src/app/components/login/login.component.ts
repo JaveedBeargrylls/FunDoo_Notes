@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userService/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/services/userService/user.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private router: Router,private UserService: UserService,private formBuilder: FormBuilder) { }
+  constructor(private router: Router,private UserService: UserService,private formBuilder: FormBuilder, private SnackBar:MatSnackBar) { }
 
   ngOnInit(){
     this.loginForm= this.formBuilder.group({
@@ -27,7 +28,10 @@ export class LoginComponent implements OnInit {
     }
 
     console.log(loginReq)
-    this.UserService.loginUser(loginReq).subscribe((respone:any) => {console.log(respone);},(error:any) => { console.log(error)})
+    this.UserService.loginUser(loginReq).subscribe((respone:any) => {console.log(respone);
+      this.SnackBar.open("Login successfull ", ' ', { duration: 1000, });},
+      (error:any) => { console.log(error)})
+    this.SnackBar.open("Login UnSuccessfull ", ' ', { duration: 1000, });
   }
   get f() { return this.loginForm.controls; }
 }

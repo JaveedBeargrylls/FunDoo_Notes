@@ -1,7 +1,6 @@
-<div class="container" fxFlex=60 fxLayout="row" fxFlex.xs=100 fxFlex.sm=80 >
-    <div class="main" fxLayout="column" fxFlex.xs=100 >
-        <form [formGroup] = "registerForm">
-            <span class="title-align">
+<div class="container" fxLayoutAlign="center center">
+    <div class="main" fxLayoutAlign="center">
+        <form [formGroup] = "registerForm" class="form_body">
             <div class="Title">
                 <span style="color: #3566b8;">F</span>
                 <span style="color: #34a853; margin-left: 0;">u</span>
@@ -10,15 +9,13 @@
                 <span style="color: #3566b8; margin-left: 0;">o</span>
                 <span style="color: #fabb05; margin-left: 0;">o</span>
             </div>
-            </span>
 
-            <h1 class="Heading">
-                Create your Fundoo Account
-            </h1>
+            <div class="Heading">
+                <span>Create your Fundoo Account</span>
+            </div>
 
-            <div class="Body" fxLayoutGap="20px" fxFlex.xs=100px fxLayout.xs="column" fxLayoutGap.xs="0px">
                 
-                <div class="part-1" fxLayout="row" fxFlexAlign="start center" fxLayoutGap="20px" fxFlex.xs=100 fxLayout.xs="column" fxLayoutGap.xs="0px">
+                <div class="part-1"  fxLayoutGap="20px">
 
                     <mat-form-field appearance="outline" class="firstname">
                         <mat-label>First name</mat-label>
@@ -34,21 +31,21 @@
 
                 </div>
 
-                <div class="part-2" fxLayout="column" >
+                <div class="part-2" >
 
                     <mat-form-field appearance="outline" class="Email">
                             <mat-label>Username</mat-label>
-                            <input matInput placeholder="Email" formControlName="email">
+                            <input matInput placeholder="Username" formControlName="email">
                             <mat-error>Email Is Required !</mat-error>
-                            <mat-hint style="font-size: 14px;">You can use letters, numbers & periods</mat-hint>
+                            <mat-hint>You can use letters, numbers & periods</mat-hint>
                     </mat-form-field>
-
+                
+                </div>
                     <div class="button_for_text" >
                             <button mat-button routerLink="/login">Use my Current email address instead</button>
                     </div>
 
-                </div>
-                <div class="part-3" fxAlign="start center" fxAlignfxLayout="row" fxLayoutGap="20px" fxLayoutGap.xs="0px">
+                <div class="part-3" fxLayoutGap="20px">
 
                     <mat-form-field appearance="outline" class="password">
                         <mat-label>Password</mat-label>
@@ -62,32 +59,30 @@
                         <mat-error>Confirm Password name Is Required</mat-error>
                     </mat-form-field>
                 </div>
+
                      <mat-hint class="Text">Use 8 or more characters with a mix of letters,numbers & <br> <span class="text_equal" >Symbols</span></mat-hint>
 
-                <section class="checkbox">
-                    <mat-checkbox class="checkbox_margin">show Password</mat-checkbox>
-                </section>
+                <div class="checkbox">
+                    <mat-checkbox class="checkbox_margin">Show Password</mat-checkbox>
+                </div>
 
-                <div class="part-4"  fxLayout="row" fxLayoutGap="10px">
-                    <div class="button_hover">
+                    <div class="part-4">
                         <button mat-button routerLink="/login">Sign in instead</button>
-                    </div>
 
-                    <div class="button" fxAlign="end" style="margin-left:">
-                        <button (click)="onSubmit()" mat-raised-button color="primary">Next</button>
+                    
+                        <button class="button" (click)="onSubmit()" mat-raised-button color="primary">Next</button>
                     </div>
                     
-                </div>
-
-            </div>
-
         </form>    
-    </div>
-                <div class= "image" fxHide.xs fxLayout="column" fxFlexAlign="auto" fxLayoutAlign="start center">
+    
+            <div class= "part-5" fxHide.xs fxHide.sm>
+                <div class= "image" >
                     <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="240" height="240">
-                    <div class="img_content" fxHide.xs fxLayout="column" fxFlexAlign="auto" fxLayoutAlign="start center">
-                    <p style="margin-left: 12px; margin-top: -3px" >One account.All of Google <br> <span style="margin-left: 25px;" >working for you</span></p>
-                    </div>
+                    <div class="img_content" >
+                    <div class="content1" fxLayoutAlign="center">One account.All of Google</div>
+                    <div class="content2" fxLayoutAlign="center">working for you</div>
                 </div>
+        </div>  
+    </div>
 
 </div>

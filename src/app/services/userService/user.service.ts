@@ -23,9 +23,9 @@ export class UserService {
     return this.httpService.Post('/user/reset',reqdata)
   }
 
-  resetUser(reqdata:any){
+  resetUser(reqdata:any,token:any){
     console.log("Reset User data",reqdata)
-    return this.httpService.Post('user/reset-password',reqdata)
+    return this.httpService.Post(`/user/reset-password`,reqdata)
   }
 
 }

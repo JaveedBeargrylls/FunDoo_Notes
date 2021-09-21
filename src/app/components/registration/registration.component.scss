@@ -1,78 +1,56 @@
 .container{
-    border:1px solid rgb(180, 200, 243) ;
-    margin: 10% auto;
-    padding: 5% 5%;
-    border-radius: 10px;
-    align-self: center;
-    display: flex;
-    margin-top: 5%;
-    margin-right: 22%;
-    margin-left: 22%;
+    padding: 40px 0px 60px 0px;
+   
 }
 .main{
-    display: flex;
-    margin-left: -25px;
+    // padding: 50px 0px 50px 0px;
+    border: 1px solid rgba(128, 128, 128, 0.699);
+    border-radius:10px;
+    // width:700px;
+}
+.form_body{
+    padding: 15px
 }
 .Title{
-    display: flex;
+    // display: flex;
     font-size: 200%;
     font-weight: 200%;
-    padding: 0% 0%;
-    margin-bottom: 18px;
-    margin-top: -30px;
+    font-family: monospace;
+    // padding: 0% 0%;
+    // margin-bottom: 18px;
+    // margin-top: -30px;
 }
 .Heading{
-    display: flex;
     font-family: Noto Sans Myanmar UI,arial,sans-serif;
-    font-size: 150%;
+    font-size: 20px;
+    font-weight: lighter;
     margin-bottom:10%;
+    padding: 27px 0.9px;
 }
-
-.part-1{
-    display: flex;
-    gap: 10px;
-}
-.first_name{
-    font-size: 11px;
-    display: flex;
-    
-}
-.part-2{
-    display: row;
-}
-.Email{
-    display: inline;
-}
-.part-3{
-    display: flex;
-    gap: 10px;
-}
-.Text{
-    display: inline-block;
-    margin-top: -20px;
-    margin-left: 10px;  
-}
-.checkbox{
-    display: flex;
-    padding: 1% 0%;
-    margin-left: 3px;
-}
-.part-4{
-    display: flex;
-    gap: 220px;
-    margin-top:25px;
-    margin-bottom: -10px;
-}
-.button_hover{
-    display: flex;
-    margin-left:-14px;
-    margin-right: 16px;
-    color: rgb(65, 100, 242);
+.part-2 .Email{
+    // border:1px solid red;
+    width: 420px;
 }
 .button_for_text{
-    display: flex;
+    padding: 20px 2px 10px 0px;
+    color: blue;
+}
+.button_for_text .mat-button{
+    padding-left: 0px;
+}
+.checkbox{
+    margin-top: 20px;
+}
+.part-4{
+    margin: 30px 0px 12px 0px;
+}
+.part-4 .mat-button{
     margin-left: -14px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    color: rgb(65, 100, 242);
+    color: blue;
+}
+.part-4 .button{
+    margin-left:250px;
+}
+.part-5{
+    margin-top: 130px;
 }

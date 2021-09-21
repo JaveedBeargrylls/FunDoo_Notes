@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoComponent } from './components/demo/demo.component';
 import { HttpClientModule} from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,7 @@ import { HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCheckboxModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,MatSnackBarModule
   ],
 
   providers: [],
