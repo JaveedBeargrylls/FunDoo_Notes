@@ -19,7 +19,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoComponent } from './components/demo/demo.component';
 import { HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { GetallnotesComponent } from './components/getallnotes/getallnotes.component';
+import { TakenoteComponent } from './components/takenote/takenote.component';
+import { DisplayComponent } from './components/display/display.component';
+import { MatCardModule } from '@angular/material/card';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +40,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ForgetPasswordComponent,
     ResetPasswordComponent,
     DemoComponent,
-    DashboardComponent
+    DashboardComponent,
+    GetallnotesComponent,
+    TakenoteComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCheckboxModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,
-    HttpClientModule,MatSnackBarModule
+    HttpClientModule,MatSnackBarModule,MatSidenavModule,MatIconModule,MatToolbarModule
+    ,MatListModule,MatCardModule
   ],
 
   providers: [],
