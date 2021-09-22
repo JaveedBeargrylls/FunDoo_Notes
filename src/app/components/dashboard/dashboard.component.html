@@ -1,1 +1,86 @@
-<p>dashboard works!</p>
+<div class="container" fxLayout="column" fxLayoutAlign="center"> 
+    
+    <div class="Header">
+
+        <mat-toolbar style="background-color: white;">
+
+          <mat-toolbar-row>  
+            
+              <button mat-icon-button (click)="snav.toggle()" id="menu"><mat-icon>menu</mat-icon></button>
+                
+                <img class="image" src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="keep" width="40px" height="40px">
+                
+                  <span><mat-label>FundooNotes</mat-label></span>
+
+                    <div class="search">
+                        <button mat-icon-button class="searchIcon">
+                          <mat-icon matTooltip="search">search</mat-icon>
+                        </button>
+      
+                        <input class="searchInput" placeholder="Search">
+                    </div>
+                    
+                    <div class="part-2" >
+                        <button mat-icon-button class="refresh">
+                            <mat-icon>refresh</mat-icon>
+                        </button>  
+
+                        <button mat-icon-button class="listView">
+                            <mat-icon>splitscreen</mat-icon>
+                        </button>
+
+                        <button mat-icon-button class="settings">
+                            <mat-icon>settings</mat-icon>
+                        </button> 
+                    </div>
+
+                    <div class="part-3" >
+                        <button mat-icon-button class="apps">
+                            <mat-icon>apps</mat-icon>
+                        </button>
+
+                        <button mat-icon-button class="profile">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                    </div>
+
+
+                    
+            
+            </mat-toolbar-row>
+                  
+        </mat-toolbar>
+        
+          <mat-sidenav-container class="example-sidenav-container">
+            <mat-sidenav #snav mode="side" >
+                <mat-nav-list>
+                <div style="padding:25px" >
+                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="notesIcon" >
+                        <img src="../assets\Icons\lightbulb_black_24dp.svg">
+                        <a mat-list-item routerLink=".">Notes</a>
+                      </div> 
+                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="remindIcon">
+                        <img src="../assets\Icons\notifications_black_24dp.svg">
+                        <a mat-list-item routerLink=".">Reminder</a>
+                      </div> 
+                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="editIcon">
+                        <img src="../assets\Icons\edit_black_24dp.svg">
+                        <a mat-list-item routerLink=".">Edit Lables</a>
+                      </div> 
+                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="archiveIcon">
+                        <img src="../assets\Icons\archive_black_24dp.svg">
+                        <a mat-list-item routerLink=".">Archive</a>
+                      </div> 
+                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="trashIcon">
+                        <img src="../assets\Icons\delete_black_24dp.svg">
+                        <a mat-list-item routerLink=".">Trash</a>
+                      </div> 
+                </div>
+                </mat-nav-list>
+              </mat-sidenav>
+
+              <mat-sidenav-content></mat-sidenav-content>
+
+            </mat-sidenav-container>
+    </div>
+</div>
