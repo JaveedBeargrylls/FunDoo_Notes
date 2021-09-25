@@ -1,4 +1,7 @@
 
+.container{
+  width:100vw;
+}
 .Header {
     display: flex;
     flex-direction: column;
@@ -9,28 +12,6 @@
     right: 0;
   }
   
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
-  }
-  
-  h1.example-app-name {
-    margin-left: 8px;
-  }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
-  }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  } 
-
 .search{
     margin-left: 70px;
     // border: 1px solid red;
@@ -52,12 +33,55 @@
 .search .searchInput:focus{
         outline: none;
 }
+
 .search .searchIcon:focus{
     outline: none;
 }
+
 .part-2{
     margin-left: 120px;
 }
+
 .part-3{
     margin-left:35px;
 }
+
+.mat-icon-button{
+  
+  width: 40px;
+  flex-shrink:0;
+  // border: 1px solid red;
+}
+
+.mat-sidenav-container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  // border: 1px solid red;
+}
+
+// .hiddenMenu{ //its for scroll the slide of sidenav content
+//   height: 100%;
+//   width: 100%;
+//   overflow: auto;
+//   border: 1px solid blue;
+// }
+
+
+.mat-sidenav-content{
+  justify-content: center;
+  overflow: scroll;
+  width: 100%;
+  align-content:center; 
+  padding:30px;
+}
+
+.mat-sidenav{
+  margin-top: 0px;
+  border-color: 1px whitesmoke;
+  background-color:whitesmoke;
+  width: 200px;
+  // justify-content: center;
+  background-color: transparent;
+}
+

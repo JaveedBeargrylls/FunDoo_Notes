@@ -5,9 +5,12 @@ import { DemoComponent } from './components/demo/demo.component';
 import { DisplayComponent } from './components/display/display.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { GetallnotesComponent } from './components/getallnotes/getallnotes.component';
-import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { TakenoteComponent } from './components/takenote/takenote.component';
+
+import { LoginComponent } from './components/login/login.component';
+// import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
@@ -16,13 +19,20 @@ const routes: Routes = [
   {path:'registration',component:RegistrationComponent},
   {path:'forgetpassword',component:ForgetPasswordComponent},
   {path:'resetpassword/:token',component:ResetPasswordComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,
   children:[
-          {path:'',redirectTo:'login',pathMatch:'full'},
+          {path:'',redirectTo:'home',pathMatch:'full'},
           {path:'home',component:GetallnotesComponent},
-          {path:'display',component:DisplayComponent}
+          {path:'display',component:DisplayComponent},
+          {path:'takenote',component:TakenoteComponent},
+
           ]
-  }
+  },
+  {path:'',redirectTo:'/login',pathMatch:'full'},
+  {path:'login',component:LoginComponent},
+  // {path:'home',component:HomeComponent}
+
 
 ];
 
