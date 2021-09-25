@@ -29,6 +29,11 @@ import { GetallnotesComponent } from './components/getallnotes/getallnotes.compo
 import { TakenoteComponent } from './components/takenote/takenote.component';
 import { DisplayComponent } from './components/display/display.component';
 import { MatCardModule } from '@angular/material/card';
+import { IconsComponent } from './components/icons/icons.component';
+import { AuthguardServiceService } from './services/Authguard/authguard-service.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateNotesComponent } from './components/update-notes/update-notes.component';
+
 
 
 @NgModule({
@@ -43,17 +48,23 @@ import { MatCardModule } from '@angular/material/card';
     DashboardComponent,
     GetallnotesComponent,
     TakenoteComponent,
-    DisplayComponent
+    DisplayComponent,
+    IconsComponent,
+    UpdateNotesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCheckboxModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,
     HttpClientModule,MatSnackBarModule,MatSidenavModule,MatIconModule,MatToolbarModule
-    ,MatListModule,MatCardModule
+    ,MatListModule,MatCardModule,MatDialogModule
   ],
 
-  providers: [],
+  providers: [
+
+    AuthguardServiceService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

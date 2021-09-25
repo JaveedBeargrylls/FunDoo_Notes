@@ -50,37 +50,39 @@
             </mat-toolbar-row>
                   
         </mat-toolbar>
-        
-          <mat-sidenav-container class="example-sidenav-container">
-            <mat-sidenav #snav mode="side" >
-                <mat-nav-list>
-                <div style="padding:25px" >
-                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="notesIcon" >
-                        <img src="../assets\Icons\lightbulb_black_24dp.svg">
-                        <a mat-list-item routerLink=".">Notes</a>
-                      </div> 
-                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="remindIcon">
-                        <img src="../assets\Icons\notifications_black_24dp.svg">
-                        <a mat-list-item routerLink=".">Reminder</a>
-                      </div> 
-                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="editIcon">
-                        <img src="../assets\Icons\edit_black_24dp.svg">
-                        <a mat-list-item routerLink=".">Edit Lables</a>
-                      </div> 
-                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="archiveIcon">
-                        <img src="../assets\Icons\archive_black_24dp.svg">
-                        <a mat-list-item routerLink=".">Archive</a>
-                      </div> 
-                    <div fxLayoutAlign="row" fxLayoutGap="15px" class="trashIcon">
-                        <img src="../assets\Icons\delete_black_24dp.svg">
-                        <a mat-list-item routerLink=".">Trash</a>
-                      </div> 
-                </div>
-                </mat-nav-list>
-              </mat-sidenav>
 
-              <mat-sidenav-content></mat-sidenav-content>
+              <mat-sidenav-container class="example-sidenav-container">
+                <mat-sidenav #snav mode="side" >
+                    <mat-nav-list>
+                    <div style="padding:25px" >
+                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="notesIcon" >
+                            <img src="../assets\Icons\lightbulb_black_24dp.svg">
+                            <a mat-list-item routerLink=".">Notes</a>
+                          </div> 
+                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="remindIcon">
+                            <img src="../assets\Icons\notifications_black_24dp.svg">
+                            <a mat-list-item routerLink=".">Reminder</a>
+                          </div> 
+                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="editIcon">
+                            <img src="../assets\Icons\edit_black_24dp.svg">
+                            <a mat-list-item routerLink=".">Edit Lables</a>
+                          </div> 
+                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="archiveIcon">
+                            <img src="../assets\Icons\archive_black_24dp.svg">
+                            <a mat-list-item routerLink=".">Archive</a>
+                          </div> 
+                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="trashIcon">
+                            <img src="../assets\Icons\delete_black_24dp.svg">
+                            <a mat-list-item routerLink=".">Trash</a>
+                          </div> 
+                    </div>
+                    </mat-nav-list>
+                  </mat-sidenav>
 
-            </mat-sidenav-container>
+                  <mat-sidenav-content>
+                  <router-outlet></router-outlet>
+                  </mat-sidenav-content>
+
+                </mat-sidenav-container>
     </div>
 </div>
