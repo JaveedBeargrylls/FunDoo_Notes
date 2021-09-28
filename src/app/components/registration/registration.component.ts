@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       confirmPassword:this.registerForm.value.confirmPassword,
-      service:"advacne"
+      service:"advance"
     }
 
     console.log(RegistReq)

@@ -1,4 +1,60 @@
-.text{
+.container{
+    // border: 1px solid red;
+    margin-top: 28px;
+}
+
+// .inputBar{
+//     // border: 1px solid red;   
+//     width: 550px;
+// }
+// .inputBar .input{
+//     // border: 1px solid red;   
+//     width: 550px;
+// }
+
+.container .mat-card{
+    // border: 1px solid red;
+    box-shadow: -3px 0px 4px 0px #888888;
+    width: 550x;
+}
+
+.mat-card{
+    // border: 1px solid red;
+    width: 550px;
+}
+
+// .textarea{
+
+//     border: 1px solid white;
+// }
+
+// .input .matInput{
+//     border: 1px solid red;
+// }
+
+.titlebar{
+    // background-color: red;
+    width: 550px;
+    height: 30px;
     border: none;
 
+}
+
+.titlebar .placeholder{
+
+    font-size: large;
+}
+
+
+.close{
+    display: flex;
+
+}
+
+.placeholder{
+    font-size: large;
+}
+
+.textBar .matInput{
+    background-color: red;
 }

@@ -53,6 +53,9 @@
   // border: 1px solid red;
 }
 
+
+/* SIDE BAR */
+
 .mat-sidenav-container{
   display: flex;
   width: 100%;
@@ -60,23 +63,27 @@
   // border: 1px solid red;
 }
 
-// .hiddenMenu{ //its for scroll the slide of sidenav content
-//   height: 100%;
+.mat-sidenav-container .mat-list-item{
+  
+  //    border:1px solid red;
+     padding:none;
+     background-color: none;
+      border-radius: 20px;
+     outline: none;
+  
+  }
+
+// .mat-sidenav-content{
+//     // border: 1px solid red;
+//   justify-content: center;
+//   overflow: scroll;
 //   width: 100%;
-//   overflow: auto;
-//   border: 1px solid blue;
+//   align-content:center; 
+//   padding:30px;
 // }
 
-
-.mat-sidenav-content{
-  justify-content: center;
-  overflow: scroll;
-  width: 100%;
-  align-content:center; 
-  padding:30px;
-}
-
 .mat-sidenav{
+    // border: 1px solid red;
   margin-top: 0px;
   border-color: 1px whitesmoke;
   background-color:whitesmoke;
@@ -84,4 +91,39 @@
   // justify-content: center;
   background-color: transparent;
 }
+
+.sidenav-container{
+    // border: 1px solid red;
+  flex:1;
+  background-color:white;
+}
+
+.sidenavbar{
+
+  // border: 1px solid red;
+  width: 2px;
+  padding: 0px 0px 0px 16px;
+}
+
+.sidenavbar .Icons{
+
+  // border: 1px solid red;
+  width: 275px;
+  padding: 12px;
+
+}
+
+
+// .sidebar .Icons:hover{
+//   border: 1px solid red;
+//   background-color: rgb(241,243,244);
+//   border-radius: 20px;
+// }
+
+
+// .sidebar .Icons:active{
+//   background-color: LightSalmon;
+//   border-radius: 20px;
+// }
+
 

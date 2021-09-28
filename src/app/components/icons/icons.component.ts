@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input,Output, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/noteService/note.service';
 
@@ -9,14 +9,72 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  getNotes: any;
-
-  constructor(private noteService: NoteService,private SnackBar:MatSnackBar) { }
 
   @Input() notecard:any;
+  @Output() color: EventEmitter<any> = new EventEmitter();
+  // @Output() archive: EventEmitter<any> = new EventEmitter();
+  // @Output() unarchive: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit(): void {
-  }
+  constructor(private noteService: NoteService,private snackBar:MatSnackBar) { }
+
+  
+
+  ngOnInit(): void { }
+
+  colors:Array<any> = [
+
+    { code: '#FFFFFF', name:'White'},
+    { code: '#FF2400', name:'	Scarlet'},
+    { code: '#800080', name:'Purple'},
+    { code: '#FFC0CB', name:'Pink'},
+    { code: '#ADD8E6', name:'LightBlue'},
+    { code: '#FFA500', name:'Orange'},
+    { code: '#008000', name:'Olive'},
+    { code: '#00FFFF', name:'Cyan'},
+    { code: '#52595D', name:'Iron Gray'},
+    { code: '#CECECE', name:'Platinum Silver'},
+    { code: '#9AFEFF', name:'Electric Blue'},
+    { code: '#FFE5B4', name:'Peach'},
+  ];
+  // setColor(color:any){
+
+  //   let data = {
+  //     color: color,
+  //     noteIdList: [this.notecard.id],
+  //   }
+  //   this.color.emit(data);
+  // }
+
+  setColor(color: any){
+    this.notecard.color = color;
+    console.log('color',color);
+    let data = {
+      color: color,
+      noteIdList: [this.notecard.id],
+    }
+    console.log(data);
+    this.noteService.changeColor(data).subscribe(
+      (response:any)=>{ 
+        // this.getNotes.emit(color)
+        console.log('Response of setColour',response);
+        this.snackBar.open('Change the background color','',{duration:2000,})
+      },
+      (error:any) => {
+        this.snackBar.open('Error occured color Note','try Again',{duration:2000,})
+      }
+      );
+   }
+
+
+
+
+  // archiveNote(){
+  //   this.archive.emit();
+  // }
+  // unArchiveNote(){
+  //   this.unarchive.emit();
+  // }
+
 
 //     openDialog(notecard: any): void {
 //     const dialogRef = this.dialog.open(UpdatenoteComponent, {
@@ -31,19 +89,24 @@ export class IconsComponent implements OnInit {
 //   }
 // }
 
+
   deleteNotes() {
-    let noteData = {
+    let deletedData = {
       noteIdList: [this.notecard.id],
       isDeleted: false,
     };
-    this.noteService.deleteNoteService(noteData).subscribe(
-      (result:any) => {
-        this.SnackBar.open('Note Deleted', 'Close', {
+    console.log(deletedData);
+    this.noteService.deleteNoteService(deletedData).subscribe(
+      (result) => {
+
+        console.log(result);
+
+        this.snackBar.open('Note Deleted', 'Close', {
           duration: 3000,
         });
       },
       (err:any) => {
-        this.SnackBar.open('Error during delete note', 'Try Again', {
+        this.snackBar.open('Error during delete note', 'Try Again', {
           duration: 3000,
         });
       }

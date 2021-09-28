@@ -74,4 +74,59 @@ export class NoteService {
         return this.httpService.postService(this.BaseUrl+'/notes/deleteForeverNotes',data,true,httpAuthOptions);
 
     }
+
+    changeColor(data:any){
+      let httpAuthOptions = {
+        headers:new HttpHeaders({
+          'Content-Type':'application/json',
+          'Authorization': this.token
+        })
+      };
+      console.log(data);
+      console.log(httpAuthOptions);
+      
+      return this.httpService.postService(this.BaseUrl+'/notes/changesColorNotes',data,true, httpAuthOptions);
+    }
+
+    archiveNote(data:any){
+      let httpAuthOptions = {
+        headers:new HttpHeaders({
+          'Content-Type':'application/json',
+          'Authorization': this.token
+        })
+      };
+      console.log(data);
+      console.log(httpAuthOptions);
+
+      return this.httpService.postService(this.BaseUrl+'notes/archiveNotes',data,true, httpAuthOptions);
+            
+    }
+
+    // getNote(){
+    //   let httpAuthOptions = {
+    //     headers:new HttpHeaders({
+    //       'Content-Type':'application/json',
+    //       'Authorization': this.token
+    //     })
+    //   };
+    //   console.log();
+    //   console.log(httpAuthOptions);
+
+    //   return this.httpService.getService(this.BaseUrl+'notes/getNotesList',true, httpAuthOptions);
+            
+    // }
+
+    unArchiveNote(data:any){
+      let httpAuthOptions = {
+        headers:new HttpHeaders({
+          'Content-Type':'application/json',
+          'Authorization': this.token
+        })
+      };
+      console.log(data);
+      console.log(httpAuthOptions);
+
+      return this.httpService.postService(this.BaseUrl+'notes/archiveNotes',data,true, httpAuthOptions);
+            
+    }
   }

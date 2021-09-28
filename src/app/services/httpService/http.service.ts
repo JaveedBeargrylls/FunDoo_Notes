@@ -23,11 +23,11 @@ export class HttpService {
 
    postService(url: string='',payload: any, tokenRequired: boolean = false, httpOptions:any) {
 
-    // console.log(url);
-    // // console.log(url); // to get ride of an error during the null type
-    // console.log(tokenRequired);
-    // console.log(httpOptions);
-    // console.log(payload);
+    console.log(url);
+    // console.log(url); // to get ride of an error during the null type
+    console.log(tokenRequired);
+    console.log(httpOptions);
+    console.log(payload);
     return this.http.post( url, payload, tokenRequired && httpOptions );
   }
    

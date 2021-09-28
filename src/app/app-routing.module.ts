@@ -11,7 +11,7 @@ import { TakenoteComponent } from './components/takenote/takenote.component';
 
 import { LoginComponent } from './components/login/login.component';
 // import { HomeComponent } from './components/home/home.component';
-
+import { AunthenticationGuard } from './AuthGuard/aunthentication.guard'
 
 const routes: Routes = [
   {path:'demo',component:DemoComponent},
@@ -20,19 +20,16 @@ const routes: Routes = [
   {path:'forgetpassword',component:ForgetPasswordComponent},
   {path:'resetpassword/:token',component:ResetPasswordComponent},
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent,
+  {path:'dashboard',component:DashboardComponent, canActivate:[AunthenticationGuard],
   children:[
           {path:'',redirectTo:'home',pathMatch:'full'},
           {path:'home',component:GetallnotesComponent},
           {path:'display',component:DisplayComponent},
           {path:'takenote',component:TakenoteComponent},
 
-          ]
-  },
-  {path:'',redirectTo:'/login',pathMatch:'full'},
-  {path:'login',component:LoginComponent},
-  // {path:'home',component:HomeComponent}
+          ]},
 
+  
 
 ];
 
