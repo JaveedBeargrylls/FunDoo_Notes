@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/noteService/note.service';
 
 @Component({
@@ -7,14 +8,35 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
+  NotesList = [] // use any to store the data in notelist
 
-  constructor(private noteService:NoteService) { }
+  constructor(private noteService: NoteService, private snackBar:MatSnackBar) { }
 
-  allArchiveNotes: Array<any> = [];
+  ngOnInit(){
 
-  ngOnInit(): void {
+    this.getArchiveNotes()
+  }
 
-    // this.getArchiveNotes();
+
+  getArchiveNotes(){
+
+    this.noteService.getArchiveNotes().subscribe(
+        
+        (response:any) => { console.log(response);
+          
+          this.NotesList = response.data.data;
+          
+          this.NotesList.reverse()
+          console.log("noteList ",this.NotesList)
+          this.snackBar.open('Archived','',{duration:2000,})
+
+        },
+        
+        error => {console.log(error);
+        this.snackBar.open('Error Occured','try Again',{duration:2000,})
+
+        }
+    )
 
   }
 

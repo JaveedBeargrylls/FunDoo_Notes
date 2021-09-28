@@ -12,6 +12,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DisplayComponent implements OnInit {
 
 
+ 
+
+  
+
+
+
   constructor(public dialog: MatDialog,private noteService:NoteService, private snackBar:MatSnackBar) { }
 
   @Input() NoteArray: any;
