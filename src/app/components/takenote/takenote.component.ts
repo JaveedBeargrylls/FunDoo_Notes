@@ -47,6 +47,7 @@ export class TakenoteComponent implements OnInit {
         this.SnackBar.open("Note Wasnot added !",'Try Again',{duration: 3000,});
       }
     );
+    this.show=false;
   }
 
   // cateNote(){

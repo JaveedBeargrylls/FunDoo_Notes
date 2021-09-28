@@ -27,18 +27,22 @@ export class LoginComponent implements OnInit {
     let loginReq = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
-    }
+    };
 
     console.log("loginRequest",loginReq)
-    this.UserService.loginUser(loginReq).subscribe((respone:any) => {console.log(respone);
+    this.UserService.loginUser(loginReq).subscribe(
+      
+      (respone:any) => {console.log("login Response",respone);
 
-      console.log("login Response",respone);
-      localStorage.setItem('token',respone.id)
-      this.router.navigateByUrl('/dashboard'),
-      this.SnackBar.open("Login successfull ", ' ', { duration: 1000, });
+      localStorage.setItem('token',respone.id),
+      this.router.navigateByUrl('/dashboard/home'),
+      this.SnackBar.open("Login successfull", '', { duration: 2000,});
     },
-      (error:any) => { console.log(error)})
-    this.SnackBar.open("Login UnSuccessfull ", ' ', { duration: 1000, });
+    (error:any) => { 
+
+      console.log(error)
+      this.SnackBar.open("Login UnSuccessfull", 'try Again', { duration: 2000, });
+    });
   }
   get f() { return this.loginForm.controls; }
 }

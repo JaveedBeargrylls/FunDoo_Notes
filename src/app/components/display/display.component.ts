@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 import { NoteService } from '../../services/noteService/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,42 +20,79 @@ export class DisplayComponent implements OnInit {
 
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
+
+
   ngOnInit(){
     
     console.log(this.NoteArray);
     
   }
+
+  // setColor(color: any){
+    
+  //   console.log('color',color);
+  //   let data={
+  //     id: this.NoteArray['id'],
+  //     color: color,
+  //   };
+  //   console.log(data);
+  //   this.noteService.changeColor(color).subscribe(
+  //     (response:any)=>{ 
+  //       // this.getNotes.emit(color)
+  //       console.log('Response of setColour',response);
+  //       this.snackBar.open('Change the background color','',{duration:2000,})
+  //     },
+  //     (error:any) => {
+  //       this.snackBar.open('Error occured color Note','try Again',{duration:2000,})
+  //     }
+  //     );
+  //  }
+
+
+
+
+
+   
+  //  setArchive(){
+  //    let notedata = { 
+  //      noteIdList: [this.NoteArray.id],
+  //      isArchived: true,
+  //    };
+  //    this.noteService.archiveNote(notedata).subscribe( 
+  //      (response) => {
+  //        this.getNotes.emit();
+  //        this.snackBar.open('Archived note','',{duration:2000,});
+  //      },
+  //      (error) => { 
+  //        this.snackBar.open('Error occured at archived note','try Again',{duration:2000,});
+  //      });
+  //  }
+
+  //  setUnArchive(){
+  //    let notedata = { 
+  //      noteIdList: [this.NoteArray.id],
+  //      isArchived: true,
+  //    };
+  //    this.noteService.unArchiveNote(notedata).subscribe( 
+  //      (response) => {
+  //        this.getNotes.emit();
+  //        this.snackBar.open('Archived note','',{duration:2000,});
+  //      },
+  //      (error) => { 
+  //        this.snackBar.open('Error occured at archived note','try Again',{duration:2000,});
+  //      });
+  //  }
+
   
-  openDialog(data:any){
+  openDialog(notecard:any){
     const dialogRef = this.dialog.open(UpdateNotesComponent, {
       width: '250px',
-      data: data
+      data: notecard
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed',result);
     });
   }
-
-  //   deleteNotes() {
-  //   let noteData = {
-  //     noteIdList: [this.notecard.id],
-  //     isDeleted: true,
-  //   };
-  //   this.noteService.deleteNoteService(noteData).subscribe(
-  //     (result:any) => {
-  //       console.log(result);
-  //       this.snackBar.open('Note Deleted', 'Close', {
-  //         duration: 3000,
-  //       });
-  //     },
-  //     (err:any) => {
-  //       this.snackBar.open('Error during delete note', 'Try Again', {
-  //         duration: 3000,
-  //       });
-  //     }
-  //   );
-  // }
-
 
 }

@@ -1,39 +1,51 @@
-<div style="border-radius: 5px;" fxLayout=layout-wrap fxLayout="row"  fxLayoutAlign="start center">
-
-    <div class="part-1">   
-    <!--     
-            <button mat-icon-button class="remindme">
+<div  fxLayoutGap="20px" fxLayoutAlign="row wrap  ">  
+       
+            
             <img src="../assets\Icons\add_alert_black_24dp.svg">
-            </button>
         
-            <button mat-icon-button class="collaborator">
             <img src="../assets\Icons\person_add_alt_black_24dp.svg">
-            </button>
-            
-            <button mat-icon-button class="changecolour">
-            <img src="../assets\Icons\color_lens_black_24dp.svg">
-            </button>
-            
-            <button mat-icon-button >
-            <img src="../assets\Icons\insert_photo_black_24dp.svg">
-            </button>
 
-            <button mat-icon-button >
             <img  src="../assets\Icons\archive_black_24dp.svg">
+            
+            <!--COLOUR-->
+            <button mat-icon-button [matMenuTriggerFor]="colorMenu" >
+            <img src="../assets\Icons\color_lens_black_24dp.svg">
+              <mat-menu #colorMenu="matMenu">
+                <div class="pop">
+                    
+                  <div *ngFor="let color of colors" class="colorButton">
+                    <button mat-mini-fab [style.background]="color?.code" (click)="setColor(color.code)"></button>
+                  </div>
+
+                </div>
+              </mat-menu>
             </button>
             
-            -->
-            <button mat-icon-button >
-            <img (click)="deleteNotes()" src="../assets\Icons\archive_black_24dp.svg">
-            </button>
-            <!--
+            
+            <img src="../assets\Icons\insert_photo_black_24dp.svg">
 
-            <button mat-icon-button >
-            <img src="../assets\Icons\more_vert_black_24dp.svg">
-            </button>
-            -->
+            <!--Archive & unArchive
 
-    </div>
+            <button mat-icon-button *ngIf="notecard.isArchived!==true">
+                <img  src="../assets\Icons\archive_black_24dp.svg" (click)="archiveNote()">
+            </button>
+
+            <button mat-icon-button *ngIf="notecard.isArchived==true">
+                <img  src="../assets\Icons\unarchive_black_24dp.svg" (click)="unArchiveNote()">
+            </button>  
+            -->          
+              
+             <!--MenuBar-->           
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <img  src="../assets\Icons\more_vert_black_24dp.svg" >
+              <mat-menu #menu="matMenu" yPosition="below">
+              <span mat-menu-item (click)="deleteNotes()">Delete note
+              </span>
+              </mat-menu>
+            </button>
+            
+  
+
 <!--
     <div class="part-2" fxLayoutGap="20px">    
     <button mat-icon-button class ="undo">

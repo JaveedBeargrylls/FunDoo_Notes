@@ -33,6 +33,8 @@ import { IconsComponent } from './components/icons/icons.component';
 import { AuthguardServiceService } from './services/Authguard/authguard-service.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNotesComponent } from './components/update-notes/update-notes.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 
 
@@ -50,14 +52,15 @@ import { UpdateNotesComponent } from './components/update-notes/update-notes.com
     TakenoteComponent,
     DisplayComponent,
     IconsComponent,
-    UpdateNotesComponent
+    UpdateNotesComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCheckboxModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,
     HttpClientModule,MatSnackBarModule,MatSidenavModule,MatIconModule,MatToolbarModule
-    ,MatListModule,MatCardModule,MatDialogModule
+    ,MatListModule,MatCardModule,MatDialogModule, MatMenuModule,
   ],
 
   providers: [

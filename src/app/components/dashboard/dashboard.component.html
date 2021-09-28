@@ -51,27 +51,30 @@
                   
         </mat-toolbar>
 
-              <mat-sidenav-container class="example-sidenav-container">
+
+              <div style="border: 2px solid #f1f3f4;"></div>
+
+              <mat-sidenav-container class="sidenav-container">
                 <mat-sidenav #snav mode="side" >
                     <mat-nav-list>
-                    <div style="padding:25px" >
-                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="notesIcon" >
+                    <div  class="sideBar" >
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon" >
                             <img src="../assets\Icons\lightbulb_black_24dp.svg">
                             <a mat-list-item routerLink=".">Notes</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="remindIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="remindIcon">
                             <img src="../assets\Icons\notifications_black_24dp.svg">
                             <a mat-list-item routerLink=".">Reminder</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="editIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="editIcon">
                             <img src="../assets\Icons\edit_black_24dp.svg">
                             <a mat-list-item routerLink=".">Edit Lables</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="archiveIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="archiveIcon">
                             <img src="../assets\Icons\archive_black_24dp.svg">
                             <a mat-list-item routerLink=".">Archive</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="15px" class="trashIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="trashIcon">
                             <img src="../assets\Icons\delete_black_24dp.svg">
                             <a mat-list-item routerLink=".">Trash</a>
                           </div> 
