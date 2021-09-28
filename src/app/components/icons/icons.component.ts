@@ -10,21 +10,39 @@ import { NoteService } from 'src/app/services/noteService/note.service';
 })
 export class IconsComponent implements OnInit {
 
+
+
+  isArchived = false;
+  isDeleted = false;
+
   @Input() notecard:any;
+
+
+  
+  /*** @see [Input and Output properties](guide/inputs-outputs)
+        (bindingPropertyName?: string): any;
+    new (bindingPropertyName?: string): any; 
+  
+    >>this property value is bound to a different property name
+    >>when this component is instantiated in a template. **/
+
   @Output() color: EventEmitter<any> = new EventEmitter();
-  // @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() archive: EventEmitter<any> = new EventEmitter();
   // @Output() unarchive: EventEmitter<any> = new EventEmitter();
 
   constructor(private noteService: NoteService,private snackBar:MatSnackBar) { }
 
   
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    // this.archiveNote()
+   }
 
   colors:Array<any> = [
 
     { code: '#FFFFFF', name:'White'},
-    { code: '#FF2400', name:'	Scarlet'},
+    { code: '#C24641', name:'Cherry Red'},
     { code: '#800080', name:'Purple'},
     { code: '#FFC0CB', name:'Pink'},
     { code: '#ADD8E6', name:'LightBlue'},
@@ -45,6 +63,9 @@ export class IconsComponent implements OnInit {
   //   this.color.emit(data);
   // }
 
+
+  /*****SetColor******/
+
   setColor(color: any){
     this.notecard.color = color;
     console.log('color',color);
@@ -55,16 +76,91 @@ export class IconsComponent implements OnInit {
     console.log(data);
     this.noteService.changeColor(data).subscribe(
       (response:any)=>{ 
-        // this.getNotes.emit(color)
+        // this.color.emit()
         console.log('Response of setColour',response);
-        this.snackBar.open('Change the background color','',{duration:2000,})
+        this.snackBar.open('Changed the background color','',{duration:2000,})
       },
       (error:any) => {
+        console.log('archive Error at icons methods',error);
+        
         this.snackBar.open('Error occured color Note','try Again',{duration:2000,})
       }
       );
    }
 
+  
+  /**********ArchiveNote*************/ 
+
+   archiveNote(){
+
+    
+
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isArchived: this.isArchived
+    }
+
+    console.log(data);
+    this.noteService.archiveNotes(data).subscribe(
+      (response:any) => {
+        
+        console.log('archiveResponse',response);
+        this.snackBar.open('Archived','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('archive Error', error);
+        this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
+      });
+   }
+
+
+  /**********trashNote*************/ 
+
+  trashNote(){
+
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isDeleted: this.isDeleted
+    }
+
+    console.log(data);
+    this.noteService.trashNote(data).subscribe(
+      (response:any) => {
+        
+        console.log('deleteResponse',response);
+        this.snackBar.open('Delete','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('delete Error', error);
+        this.snackBar.open('Error occured during trashNote','try Again',{duration:2000,})
+      });
+   }
+
+  /**********trashNote*************/ 
+  deleteNote() {
+    let deletedData = {
+      noteIdList: [this.notecard.id],
+      isDeleted: false,
+    };
+    console.log(deletedData);
+    this.noteService.deleteNote(deletedData).subscribe(
+      (result) => {
+
+        console.log(result);
+
+        this.snackBar.open('Note Deleted', 'Close', {duration: 3000,});
+      },
+      (err:any) => {
+        this.snackBar.open('Error during delete note', 'Try Again', {
+          duration: 3000,
+        });
+      }
+    );
+  }
+
+}
 
 
 
@@ -88,29 +184,3 @@ export class IconsComponent implements OnInit {
 //     });
 //   }
 // }
-
-
-  deleteNotes() {
-    let deletedData = {
-      noteIdList: [this.notecard.id],
-      isDeleted: false,
-    };
-    console.log(deletedData);
-    this.noteService.deleteNoteService(deletedData).subscribe(
-      (result) => {
-
-        console.log(result);
-
-        this.snackBar.open('Note Deleted', 'Close', {
-          duration: 3000,
-        });
-      },
-      (err:any) => {
-        this.snackBar.open('Error during delete note', 'Try Again', {
-          duration: 3000,
-        });
-      }
-    );
-  }
-
-}

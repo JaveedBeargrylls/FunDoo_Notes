@@ -13,7 +13,8 @@ export class TakenoteComponent implements OnInit {
   title: any;
   description: any;
 
-  @Output() createNoteRefresh = new EventEmitter<any>();
+  @Output() refresh: EventEmitter<any> = new EventEmitter();
+  
 
 
   constructor(private noteService: NoteService, private SnackBar:MatSnackBar) { }
@@ -38,6 +39,7 @@ export class TakenoteComponent implements OnInit {
     this.noteService.createNote(data).subscribe(
 
       (response: any) => {
+        this.refresh.emit({})
         this.title = null;
         this.description = null;
         this.SnackBar.open("Note Added Sucessfully",'',{duration: 3000,});

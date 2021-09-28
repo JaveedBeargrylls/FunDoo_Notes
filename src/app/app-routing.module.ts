@@ -12,6 +12,8 @@ import { TakenoteComponent } from './components/takenote/takenote.component';
 import { LoginComponent } from './components/login/login.component';
 // import { HomeComponent } from './components/home/home.component';
 import { AunthenticationGuard } from './AuthGuard/aunthentication.guard'
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
 
 const routes: Routes = [
   {path:'demo',component:DemoComponent},
@@ -26,6 +28,8 @@ const routes: Routes = [
           {path:'home',component:GetallnotesComponent},
           {path:'display',component:DisplayComponent},
           {path:'takenote',component:TakenoteComponent},
+          {path:'archive',component:ArchiveComponent},
+          {path:'trash',component:TrashComponent},
 
           ]},
 
