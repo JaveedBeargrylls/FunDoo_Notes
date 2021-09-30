@@ -26,24 +26,36 @@
             
 <!-- *ngIf="!isArchived" Archive & Un-Archive-->
 
-            <button mat-icon-button >
+            <button mat-icon-button *ngIf="!notecard.isArchived">
                 <img  src="../assets\Icons\archive_black_24dp.svg" (click)="archiveNote()" matTooltip="Archive">
             </button>
 
-<!--
-            <button mat-icon-button *ngIf="notecard.isArchived==true">
-                <img  src="../assets\Icons\unarchive_black_24dp.svg" (click)="unArchiveNote()">
-            </button>  
-    -->          
 
+            <button mat-icon-button *ngIf="notecard.isArchived">
+                <img  src="../assets\Icons\unarchive_black_24dp.svg" (click)="unArchiveNote()">
+            </button>      
+
+<!--====================================================================================================-->
              <!--MenuBar-->           
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <img  src="../assets\Icons\more_vert_black_24dp.svg" >
               <mat-menu #menu="matMenu" yPosition="below">
-              <span mat-menu-item (click)="deleteNote()">Delete note</span>
-              <span mat-menu-item (click)="trashNote()">Move to Trash</span>
+              <span mat-menu-item *ngIf="notecard.isDeleted" (click)="restore()">Restore</span>
+              <span mat-menu-item *ngIf="notecard.isDeleted" (click)="deleteNote()">Delete note</span>
+              <span mat-menu-item *ngIf="!notecard.isDeleted" (click)="trashNote()">Move to Trash</span>
+              <span mat-menu-item [matMenuTriggerFor]="lableMenu">Add Lable</span>
               </mat-menu>
             </button>
+
+            <!-- Label Menu Bar-->
+
+            <mat-menu #lableMenu="matMenu">
+              <div style="margin-left:10px;" class="labelNote">LabelNote</div>
+              <div mat-menu-item style="margin-bottom: -8px; margin-left: -11px;">
+              <input  matInput type="text" placeholder="Create label">
+              </div>
+            </mat-menu>
+            
             
   
 

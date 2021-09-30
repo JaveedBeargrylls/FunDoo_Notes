@@ -36,6 +36,9 @@ import { UpdateNotesComponent } from './components/update-notes/update-notes.com
 import {MatMenuModule} from '@angular/material/menu';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { LabelComponent } from './components/label/label.component';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -55,14 +58,16 @@ import { TrashComponent } from './components/trash/trash.component';
     IconsComponent,
     UpdateNotesComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    LabelComponent,
+    EditLabelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCheckboxModule,FormsModule,ReactiveFormsModule,FlexLayoutModule,
     HttpClientModule,MatSnackBarModule,MatSidenavModule,MatIconModule,MatToolbarModule
-    ,MatListModule,MatCardModule,MatDialogModule, MatMenuModule,
+    ,MatListModule,MatCardModule,MatDialogModule, MatMenuModule,MatDividerModule
   ],
 
   providers: [

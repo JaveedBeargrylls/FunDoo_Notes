@@ -39,13 +39,16 @@ export class TakenoteComponent implements OnInit {
     this.noteService.createNote(data).subscribe(
 
       (response: any) => {
-        this.refresh.emit({})
+        this.refresh.emit()
         this.title = null;
         this.description = null;
         this.SnackBar.open("Note Added Sucessfully",'',{duration: 3000,});
+        console.log(response);
+        
       },
       (error: any) => {
-
+        console.log(error);
+        
         this.SnackBar.open("Note Wasnot added !",'Try Again',{duration: 3000,});
       }
     );

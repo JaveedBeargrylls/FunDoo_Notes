@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AunthenticationGuard } from './AuthGuard/aunthentication.guard'
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { LabelComponent } from './components/label/label.component';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
 
 const routes: Routes = [
   {path:'demo',component:DemoComponent},
@@ -30,7 +32,6 @@ const routes: Routes = [
           {path:'takenote',component:TakenoteComponent},
           {path:'archive',component:ArchiveComponent},
           {path:'trash',component:TrashComponent},
-
           ]},
 
   
