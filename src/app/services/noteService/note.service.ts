@@ -107,7 +107,7 @@ export class NoteService {
   }
 
   
-  /***TrashNote ***POST****/
+/****TrashNote ***POST****/
   trashNote(data: any){
     let httpAuthOptions = {
       headers:new HttpHeaders({
@@ -136,25 +136,8 @@ export class NoteService {
       
     }
 
-
-    
-  /*******Delete For ever*****POST****/
-
-  deleteNote(data:any){
-    let httpAuthOptions = {
-      headers:new HttpHeaders({
-        'Content-Type':'application/json',
-        'Authorization': this.token
-      })
-    };
-    console.log(httpAuthOptions);
-
-    return this.httpService.postService(this.BaseUrl+'/notes/deleteForeverNotes',data,true, httpAuthOptions);
-          
-  }
-
 /************ Delete_Notes *****POST*****/
-  getdeleteNoteService(){
+  deleteForEverNotes(data:any){
 
     let httpAuthOptions = {
       headers:new HttpHeaders({
@@ -162,10 +145,37 @@ export class NoteService {
       'Authorization': this.token
     })
   };
-    return this.httpService.getService(this.BaseUrl+'/notes/deleteForeverNotes',true,httpAuthOptions);
+    return this.httpService.postService(this.BaseUrl+'/notes/deleteForeverNotes',data,true,httpAuthOptions);
 }
 
-  
+/****************labelService*****POST*******/
+
+createLabels(data:any) : Observable<any>{
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+  };
+  console.log(httpAuthOptions); // to check the value of httpAuthOptions to get ride of an error 
+
+  return this.httpService.postService(this.BaseUrl +'/noteLabels',data, true, httpAuthOptions);
+
+}
+
+/****************labelService*****GET*******/
+getLabels(){
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+  };
+  console.log(httpAuthOptions);
+
+  return this.httpService.getService(this.BaseUrl+'/noteLabels/getNoteLabelList',true, httpAuthOptions);
+        
+}
 
 
     // unArchiveNote(data:any){

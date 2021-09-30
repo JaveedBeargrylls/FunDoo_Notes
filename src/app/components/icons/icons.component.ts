@@ -16,6 +16,7 @@ export class IconsComponent implements OnInit {
   isDeleted = false;
 
   @Input() notecard:any;
+  @Input() color:any;
 
 
   
@@ -26,8 +27,10 @@ export class IconsComponent implements OnInit {
     >>this property value is bound to a different property name
     >>when this component is instantiated in a template. **/
 
-  @Output() color: EventEmitter<any> = new EventEmitter();
-  @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() colorRefresh: EventEmitter<any> = new EventEmitter();
+  @Output() archiveRefresh: EventEmitter<any> = new EventEmitter();
+  @Output() deleteRefresh: EventEmitter<any> = new EventEmitter();
+
   // @Output() unarchive: EventEmitter<any> = new EventEmitter();
 
   constructor(private noteService: NoteService,private snackBar:MatSnackBar) { }
@@ -76,7 +79,7 @@ export class IconsComponent implements OnInit {
     console.log(data);
     this.noteService.changeColor(data).subscribe(
       (response:any)=>{ 
-        // this.color.emit()
+        this.color.emit()
         console.log('Response of setColour',response);
         this.snackBar.open('Changed the background color','',{duration:2000,})
       },
@@ -86,14 +89,36 @@ export class IconsComponent implements OnInit {
         this.snackBar.open('Error occured color Note','try Again',{duration:2000,})
       }
       );
+      window.location.reload();
    }
 
   
-  /**********ArchiveNote*************/ 
+  /**********ArchiveNote & unArchiveNote*************/ 
 
    archiveNote(){
 
-    
+    let data ={
+
+      noteIdList: [this.notecard.id],
+      isArchived: !this.isArchived
+    }
+
+    console.log(data);
+    this.noteService.archiveNotes(data).subscribe(
+      (response:any) => {
+        
+        console.log('archiveResponse',response);
+        this.archiveRefresh.emit()
+        this.snackBar.open('Archived','',{duration:2000,})
+      },
+      (error:any) => {
+        console.log('archive Error', error);
+        this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
+      });
+      window.location.reload();
+   }
+
+   unArchiveNote(){
 
     let data ={
 
@@ -106,46 +131,49 @@ export class IconsComponent implements OnInit {
       (response:any) => {
         
         console.log('archiveResponse',response);
-        this.snackBar.open('Archived','',{duration:2000,})
+        this.archiveRefresh.emit()
+        this.snackBar.open('UnArchived','',{duration:2000,})
       },
       (error:any) => {
-        console.log('archive Error', error);
-        this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
+        console.log('UnArchive Error', error);
+        this.snackBar.open('Error occured during unArchive','try Again',{duration:2000,})
       });
+      window.location.reload();
    }
 
 
-  /**********trashNote*************/ 
+  /**********trashNote_&_DeleteNote_&_Restore************/ 
 
   trashNote(){
 
     let data ={
 
       noteIdList: [this.notecard.id],
-      isDeleted: this.isDeleted
+      isDeleted: !this.isDeleted
     }
-
+// bothe delte
     console.log(data);
     this.noteService.trashNote(data).subscribe(
       (response:any) => {
         
         console.log('deleteResponse',response);
-        this.snackBar.open('Delete','',{duration:2000,})
+        this.snackBar.open('Moved to Trash','close',{duration:2000,})
       },
       (error:any) => {
         console.log('delete Error', error);
         this.snackBar.open('Error occured during trashNote','try Again',{duration:2000,})
       });
+      window.location.reload();
    }
 
-  /**********trashNote*************/ 
+ 
   deleteNote() {
     let deletedData = {
       noteIdList: [this.notecard.id],
       isDeleted: false,
     };
     console.log(deletedData);
-    this.noteService.deleteNote(deletedData).subscribe(
+    this.noteService.deleteForEverNotes(deletedData).subscribe(
       (result) => {
 
         console.log(result);
@@ -156,8 +184,29 @@ export class IconsComponent implements OnInit {
         this.snackBar.open('Error during delete note', 'Try Again', {
           duration: 3000,
         });
-      }
-    );
+      });
+      window.location.reload();
+  }
+
+  restore() {
+    let restoreData = {
+      noteIdList: [this.notecard.id],
+      isDeleted: false,
+    };
+    console.log(restoreData);
+    this.noteService.trashNote(restoreData).subscribe(
+      (result) => {
+
+        console.log(result);
+
+        this.snackBar.open('Restored', 'Close', {duration: 3000,});
+      },
+      (err:any) => {
+        this.snackBar.open('Error during restore note', 'Try Again', {
+          duration: 3000,
+        });
+      });
+      window.location.reload();
   }
 
 }

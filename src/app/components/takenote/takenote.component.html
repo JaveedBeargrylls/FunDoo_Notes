@@ -1,15 +1,18 @@
 
-<div fxLayoutAlign="center center" class="container" fxLayoutGap="40px">
+<div fxLayoutAlign="center center" class="container" fxLayoutGap="40px" fxFlex.sm="60%" fxFlex.xs="40%">
+  
+  <div >
 
-    <mat-card *ngIf="!show" (click)="onOpen()">
+    <mat-card *ngIf="!show" (click)="onOpen()" style="height:43px;" fxLayout="row"  fxLayoutAlign="center center" Flex.sm="270px" fxFlex.xs="250px">
       
       <div class="inputBar">
 
         <input matInput placeholder="Take a note.." type="text" class="titlebar"/>
       
       </div>
+ 
     </mat-card>
-
+ </div>
       <mat-card *ngIf="show">
 
           <div fxLayout="column" fxLayoutGap="10px" class="textBar">

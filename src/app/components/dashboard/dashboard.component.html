@@ -1,6 +1,6 @@
-<div class="container" fxLayout="column" fxLayoutAlign="center"> 
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.xs="space-between center"fxFlex=100 > 
     
-    <div class="Header">
+    <div class="Header" >
 
         <mat-toolbar style="background-color: white;">
 
@@ -10,9 +10,9 @@
                 
                 <img class="image" src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="keep" width="40px" height="40px">
                 
-                  <span><mat-label>FundooNotes</mat-label></span>
+                  <span><mat-label>{{title}}</mat-label></span>
 
-                    <div class="search">
+                    <div class="search" fxShow fxHide.xs fxShow fxHide.xs fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12'>
                         <button mat-icon-button class="searchIcon">
                           <mat-icon matTooltip="search">search</mat-icon>
                         </button>
@@ -54,9 +54,9 @@
 
               <div style="border: 2px solid #f1f3f4;"></div>
 
-              <mat-sidenav-container class="sidenav-container">
+              <mat-sidenav-container class="sidenav-container" style="padding-left: 20px">
                 <mat-sidenav #snav mode="side" >
-                    <mat-nav-list>
+                    <mat-nav-list style="width:240px">
                     <div  class="sideBar" >
                         <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon" >
                             <img src="../assets\Icons\lightbulb_black_24dp.svg">
@@ -66,12 +66,30 @@
                             <img src="../assets\Icons\notifications_black_24dp.svg">
                             <a mat-list-item routerLink=".">Reminder</a>
                           </div> 
+
+                    <!--<div *ngFor="let i of labelList">
+                    <span>{{i?.label}}</span>
+                    </div>-->
+                    <!--labelList-->
+                    <div fxLayoutAlign="row" fxLayoutGap="20px" class="editIcon" *ngFor="let note of labelList">
+                            <img src="../assets\Icons\edit_black_24dp.svg">
+                            <a mat-list-item>{{note.label}}</a>
+                          </div> 
+
+
+
+                         <!--Edit-Label-->
                         <div fxLayoutAlign="row" fxLayoutGap="20px" class="editIcon">
                             <img src="../assets\Icons\edit_black_24dp.svg">
-                            <a mat-list-item routerLink=".">Edit Lables</a>
+                            <a mat-list-item (click)="openDialogLabels()">Edit Labels</a>
                           </div> 
+                          
+                          <!--============================================================-->
+
+
+
                         <div fxLayoutAlign="row" fxLayoutGap="20px" class="archiveIcon">
-                            <img src="../assets\Icons\archive_black_24dp.svg">
+                          <img src="../assets\Icons\archive_black_24dp.svg">
                             <a mat-list-item routerLink='/dashboard/archive'>Archive</a>
                           </div> 
                         <div fxLayoutAlign="row" fxLayoutGap="20px" class="trashIcon">

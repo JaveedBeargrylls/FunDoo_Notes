@@ -15,6 +15,7 @@ export class ArchiveComponent implements OnInit {
   ngOnInit(){
 
     this.getArchiveNotes()
+    // this.title = "Archive"
   }
 
 

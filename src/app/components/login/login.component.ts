@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit {
       (respone:any) => {console.log("login Response",respone);
 
       localStorage.setItem('token',respone.id),
+
+      localStorage.setItem('userId',respone.userId),//to get the label userID
+
       this.router.navigateByUrl('/dashboard/home'),
       this.SnackBar.open("Login successfull", '', { duration: 2000,});
     },

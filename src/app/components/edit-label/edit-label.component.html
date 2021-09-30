@@ -1,0 +1,29 @@
+<a mat-dailog-title><h4>Edit Labels</h4></a>
+<div mat-dailog-content fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"class="container">
+
+        <div >
+        <button mat-icon-button *ngIf="show" (click)="onOpen()" style="margin-left: -20px; margin-right: 0px" class="add-button">
+        <img src="../assets\Icons\add_black_24dp.svg"></button>
+        </div>
+        <div>
+        <button mat-icon-button *ngIf="!show" (click)="onClose()" class="close-button">
+        <img src="../assets\Icons\close_black_24dp.svg"></button>
+        </div>
+    
+        <div>
+            <textarea matInput [(ngModel)]="label"  style="border:none; outline:none;" placeholder="Create new label"></textarea>
+        </div>
+        
+        <div>
+        <button mat-icon-button *ngIf="!show" (click)="onCreate()" class="check-button">
+        <img src="../assets\Icons\check_black_24dp.svg"></button>
+        </div>
+
+</div>
+<br>
+<mat-divider></mat-divider>
+<div fxLayout="row" fxLayoutAlign="end center" >
+    <button mat-dialog-close mat-button style="padding-top:15px;">Done</button>
+</div>
+
+        

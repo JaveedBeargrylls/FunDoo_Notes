@@ -9,9 +9,9 @@ import { NoteService } from '../../services/noteService/note.service'
 export class GetallnotesComponent implements OnInit {
   
   NotesList = [] // use any to store the data in notelist
-
+  
   constructor(private noteService: NoteService) { }
-
+  
   ngOnInit(){
 
     this.getAllNotes()
@@ -20,11 +20,21 @@ export class GetallnotesComponent implements OnInit {
 
   getAllNotes(){
 
+    let notes = [];
+
+
     this.noteService.getAllNoteService().subscribe(
-        
+    
+      
         (response:any) => { console.log(response);
-          
-          this.NotesList = response.data.data;
+
+          notes = response.data.data;
+
+          // notes.filter((data:any) => data.isArchived != true && data.isDeleted != true);
+
+          this.NotesList = notes.filter((data:any) => data.isArchived != true && data.isDeleted != true);
+
+          // notes.filter((data:any) => data.isArchived != true && data.isDeleted != true);
           
           this.NotesList.reverse()
           console.log("noteList ",this.NotesList)
