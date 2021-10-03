@@ -1,13 +1,16 @@
-<div>
-
-    <div>
-        <input [(ngModel)]="title">
+<div class="main-container">
+    <div class="title" fxLayout="row">
+        <input [(ngModel)]="title" placeholder="Title">
+        <button mat-icon-button><img src='../assets\Icons\push_pin_black_24dp.svg'></button>
     </div>
-
-    <div>
-        <input [(ngModel)]="description">
+    <br>
+    <div class="description">
+        <input [(ngModel)]="description" placeholder="Note">
     </div>
+    <br>
+    <app-icons></app-icons>
 
-    <button mat-button (click)="updateNote()">Close</button>
-
+    <div class="closebtn" fxLayoutAlign="end end">
+        <button mat-button (click)="updateNote()" id="close"  fxLayout="row">Close</button>
+    </div>
 </div>

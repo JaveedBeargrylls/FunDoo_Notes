@@ -32,13 +32,10 @@ export class ArchiveComponent implements OnInit {
           this.snackBar.open('Archived','',{duration:2000,})
 
         },
-        
-        error => {console.log(error);
-        this.snackBar.open('Error Occured','try Again',{duration:2000,})
-
-        }
-    )
-
+        (error:any) => {
+          console.log('archive Error', error);
+          this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
+        });
   }
 
   // getArchiveNotes(){

@@ -11,14 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DisplayComponent implements OnInit {
 
-
- 
-
-  
-
-
-
-  constructor(public dialog: MatDialog,private noteService:NoteService, private snackBar:MatSnackBar) { }
+  constructor(public dialog: MatDialog) { }
 
   @Input() NoteArray: any;
 
@@ -36,14 +29,14 @@ export class DisplayComponent implements OnInit {
 
   openDialog(notecard:any){
     const dialogRef = this.dialog.open(UpdateNotesComponent, {
-      width: '400px',
-      height:'250px',
+      width: '270px',
       data: notecard
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed',result);
     });
+    // window.location.reload();
   }
 
 }

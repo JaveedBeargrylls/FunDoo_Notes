@@ -14,6 +14,7 @@ export class TrashComponent implements OnInit {
 
   ngOnInit(){
 
+
     this.getTrashNotes()
   }
 
