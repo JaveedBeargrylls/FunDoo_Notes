@@ -17,6 +17,7 @@ export class IconsComponent implements OnInit {
 
   @Input() notecard:any;
   @Input() color:any;
+  @Input() archive:any;
 
 
   
@@ -43,19 +44,18 @@ export class IconsComponent implements OnInit {
    }
 
   colors:Array<any> = [
-
-    { code: '#FFFFFF', name:'White'},
-    { code: '#C24641', name:'Cherry Red'},
-    { code: '#800080', name:'Purple'},
-    { code: '#FFC0CB', name:'Pink'},
-    { code: '#ADD8E6', name:'LightBlue'},
-    { code: '#FFA500', name:'Orange'},
-    { code: '#008000', name:'Olive'},
-    { code: '#00FFFF', name:'Cyan'},
-    { code: '#52595D', name:'Iron Gray'},
-    { code: '#CECECE', name:'Platinum Silver'},
-    { code: '#9AFEFF', name:'Electric Blue'},
-    { code: '#FFE5B4', name:'Peach'},
+    { code: '#ffffff', name: 'white' },
+    { code: '#FF6347', name: 'red' },
+    { code: '#FF4500', name: 'orange' },
+    { code: '#FFFF00', name: 'yellow' },
+    { code: '#ADFF2F', name: 'green' },
+    { code: '#43C6DB', name: 'teal' },
+    { code: '#728FCE', name: 'Blue' },
+    { code: '#2B65EC', name: 'darkblue' },
+    { code: '#D16587', name: 'purple' },
+    { code: '#F9A7B0', name: 'pink' },
+    { code: '#E2A76F', name: 'brown' },
+    { code: '#D3D3D3', name: 'grey' },
   ];
   // setColor(color:any){
 
@@ -82,6 +82,7 @@ export class IconsComponent implements OnInit {
         this.color.emit()
         console.log('Response of setColour',response);
         this.snackBar.open('Changed the background color','',{duration:2000,})
+        
       },
       (error:any) => {
         console.log('archive Error at icons methods',error);
@@ -89,13 +90,15 @@ export class IconsComponent implements OnInit {
         this.snackBar.open('Error occured color Note','try Again',{duration:2000,})
       }
       );
-      window.location.reload();
+      // window.location.reload();
    }
 
   
   /**********ArchiveNote & unArchiveNote*************/ 
 
    archiveNote(){
+
+
 
     let data ={
 
@@ -112,10 +115,10 @@ export class IconsComponent implements OnInit {
         this.snackBar.open('Archived','',{duration:2000,})
       },
       (error:any) => {
-        console.log('archive Error', error);
+        console.log('Archive Error', error);
         this.snackBar.open('Error occured during arcive','try Again',{duration:2000,})
       });
-      window.location.reload();
+      // window.location.reload();
    }
 
    unArchiveNote(){
@@ -138,7 +141,7 @@ export class IconsComponent implements OnInit {
         console.log('UnArchive Error', error);
         this.snackBar.open('Error occured during unArchive','try Again',{duration:2000,})
       });
-      window.location.reload();
+      // window.location.reload();
    }
 
 
@@ -163,7 +166,7 @@ export class IconsComponent implements OnInit {
         console.log('delete Error', error);
         this.snackBar.open('Error occured during trashNote','try Again',{duration:2000,})
       });
-      window.location.reload();
+      // window.location.reload();
    }
 
  
@@ -185,7 +188,7 @@ export class IconsComponent implements OnInit {
           duration: 3000,
         });
       });
-      window.location.reload();
+      // window.location.reload();
   }
 
   restore() {
@@ -206,7 +209,7 @@ export class IconsComponent implements OnInit {
           duration: 3000,
         });
       });
-      window.location.reload();
+      // window.location.reload();
   }
 
 }

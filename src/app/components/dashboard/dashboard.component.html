@@ -1,6 +1,6 @@
-<div class="container" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.xs="space-between center"fxFlex=100 > 
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center"  fxFlex=100 > 
     
-    <div class="Header" >
+    <div class="Header" fxFlex.sm fxFlex.xs >
 
         <mat-toolbar style="background-color: white;">
 
@@ -22,7 +22,7 @@
                     
                     <div class="part-2" >
                         <button mat-icon-button class="refresh">
-                            <mat-icon>refresh</mat-icon>
+                            <mat-icon (click)="refresh()">refresh</mat-icon>
                         </button>  
 
                         <button mat-icon-button class="listView">
@@ -62,7 +62,7 @@
                             <img src="../assets\Icons\lightbulb_black_24dp.svg">
                             <a mat-list-item routerLink="/dashboard/home">Notes</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="remindIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon">
                             <img src="../assets\Icons\notifications_black_24dp.svg">
                             <a mat-list-item routerLink=".">Reminder</a>
                           </div> 
@@ -71,15 +71,15 @@
                     <span>{{i?.label}}</span>
                     </div>-->
                     <!--labelList-->
-                    <div fxLayoutAlign="row" fxLayoutGap="20px" class="editIcon" *ngFor="let note of labelList">
-                            <img src="../assets\Icons\edit_black_24dp.svg">
+                    <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon" *ngFor="let note of labelList">
+                            <img src="../assets\Icons\label_black_24dp.svg">
                             <a mat-list-item>{{note.label}}</a>
                           </div> 
 
 
 
-                         <!--Edit-Label-->
-                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="editIcon">
+                         <!--Labels-->
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon">
                             <img src="../assets\Icons\edit_black_24dp.svg">
                             <a mat-list-item (click)="openDialogLabels()">Edit Labels</a>
                           </div> 
@@ -88,11 +88,11 @@
 
 
 
-                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="archiveIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon">
                           <img src="../assets\Icons\archive_black_24dp.svg">
                             <a mat-list-item routerLink='/dashboard/archive'>Archive</a>
                           </div> 
-                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="trashIcon">
+                        <div fxLayoutAlign="row" fxLayoutGap="20px" class="Icon">
                             <img src="../assets\Icons\delete_black_24dp.svg">
                             <a mat-list-item routerLink="/dashboard/trash">Trash</a>
                           </div> 

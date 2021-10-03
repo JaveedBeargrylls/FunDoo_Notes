@@ -1,6 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NoteService } from '../../services/noteService/note.service'
+import { NoteService } from '../../services/noteService/note.service';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-takenote',
@@ -13,11 +15,12 @@ export class TakenoteComponent implements OnInit {
   title: any;
   description: any;
 
+
   @Output() refresh: EventEmitter<any> = new EventEmitter();
   
 
 
-  constructor(private noteService: NoteService, private SnackBar:MatSnackBar) { }
+  constructor(private noteService: NoteService, private SnackBar:MatSnackBar,public dialog: MatDialog) { }
   
 
   ngOnInit(): void {
@@ -44,16 +47,16 @@ export class TakenoteComponent implements OnInit {
         this.description = null;
         this.SnackBar.open("Note Added Sucessfully",'',{duration: 3000,});
         console.log(response);
-        
       },
       (error: any) => {
         console.log(error);
         
         this.SnackBar.open("Note Wasnot added !",'Try Again',{duration: 3000,});
-      }
-    );
+      });
+
     this.show=false;
   }
+
 
   // cateNote(){
 

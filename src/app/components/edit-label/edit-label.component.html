@@ -1,29 +1,51 @@
-<a mat-dailog-title><h4>Edit Labels</h4></a>
-<div mat-dailog-content fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"class="container">
+<a mat-dailog-title><h3>Edit Labels</h3></a>
+<div >
+    <div mat-dailog-content fxLayout="row" fxLayoutAlign="space-between center" class="container" >
 
-        <div >
-        <button mat-icon-button *ngIf="show" (click)="onOpen()" style="margin-left: -20px; margin-right: 0px" class="add-button">
-        <img src="../assets\Icons\add_black_24dp.svg"></button>
-        </div>
-        <div>
-        <button mat-icon-button *ngIf="!show" (click)="onClose()" class="close-button">
-        <img src="../assets\Icons\close_black_24dp.svg"></button>
-        </div>
-    
-        <div>
-            <textarea matInput [(ngModel)]="label"  style="border:none; outline:none;" placeholder="Create new label"></textarea>
-        </div>
+            <div>
+                <button mat-icon-button *ngIf="show" (click)="onOpen()" class="add-button">
+                <img src="../assets\Icons\add_black_24dp.svg"></button>
+
+                <button mat-icon-button *ngIf="!show" (click)="onClose()" class="close-button">
+                <img src="../assets\Icons\close_black_24dp.svg"></button>
+            </div>
         
-        <div>
-        <button mat-icon-button *ngIf="!show" (click)="onCreate()" class="check-button">
-        <img src="../assets\Icons\check_black_24dp.svg"></button>
-        </div>
+            <div>
+                <textarea matInput [(ngModel)]="label"  style="border:none; outline:none;" placeholder="Create new label"></textarea>
+            </div>
+            
+            <div>
+            <button mat-icon-button *ngIf="!show" (click)="onCreate()" class="check-button">
+            <img src="../assets\Icons\check_black_24dp.svg"></button>
+            </div>
 
-</div>
+    </div>
 <br>
-<mat-divider></mat-divider>
-<div fxLayout="row" fxLayoutAlign="end center" >
-    <button mat-dialog-close mat-button style="padding-top:15px;">Done</button>
-</div>
+    <div fxLayout="row" fxLayoutAlign="start start" *ngFor="let note of labelList" style="width: 10px;" >
 
-        
+            <div fxLayoutAlign="space-around center">
+                <div (mouseover)="sample=true" (mouseout)="sample=false">
+                    <button mat-icon-button>
+                        <img style="float:right" *ngIf="!sample"  src="../assets\Icons\label_black_24dp.svg">
+                        <img style="float:right" (click)="onDeleteLabel(note)" *ngIf="sample"  src="../assets\Icons\delete_black_24dp.svg">
+                    </button>
+                </div>
+            
+               <!-- <div style="width:188px; padding:15px">{{note.label}}</div> -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" >
+                
+                <input matInput type="text" style="width:188px; padding:15px" style="border:none; outline:none;" [(ngModel)]="note.label">
+ 
+                    <!--<img style="float:right" src="../assets\Icons\edit_black_24dp.svg"> -->
+                    <button mat-icon-button (click)="onUpdate(note)" class="check-button">
+                    <img src="../assets\Icons\edit_black_24dp.svg"></button>
+                </div>
+            </div>  
+    </div>
+
+    <br>
+    <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="end center" >
+        <button mat-dialog-close mat-button style="padding-top:15px;">Done</button>
+    </div>
+</div>

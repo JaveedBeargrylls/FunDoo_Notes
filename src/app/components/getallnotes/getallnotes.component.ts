@@ -7,12 +7,15 @@ import { NoteService } from '../../services/noteService/note.service'
   styleUrls: ['./getallnotes.component.scss']
 })
 export class GetallnotesComponent implements OnInit {
+
   
   NotesList = [] // use any to store the data in notelist
   
   constructor(private noteService: NoteService) { }
   
   ngOnInit(){
+
+    
 
     this.getAllNotes()
   }

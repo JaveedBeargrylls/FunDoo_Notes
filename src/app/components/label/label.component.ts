@@ -15,15 +15,8 @@ export class LabelComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getLabelNotes()
   }
 
-  /*******Labels*******Get****/
 
-  getLabelNotes(){
-
-
-  }
-  
 
 }

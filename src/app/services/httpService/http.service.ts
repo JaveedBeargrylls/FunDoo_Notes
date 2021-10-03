@@ -33,6 +33,7 @@ export class HttpService {
    
 
 
+
   // post(url:any,reqdata:any){
   //   this.token=localStorage.getItem("Token")
    
@@ -66,5 +67,17 @@ export class HttpService {
 
   //   return this.http.put( url, tokenRequired && httpOptions );
   // }
+
+
+  deleteLabel(url: string='', tokenRequired: boolean = false, httpOptions:any=null) {
+
+    console.log(url);
+    console.log(tokenRequired);
+    console.log(httpOptions);
+
+    
+    return this.http.delete( url, tokenRequired && httpOptions );
+    
+  } 
 
 }

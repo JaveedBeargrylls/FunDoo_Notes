@@ -1,7 +1,6 @@
-<div fxLayout="row wrap" fxLayoutGap="20px"class="titleBar">
+<div fxLayout="row wrap" fxLayoutGap="30px" fxLayoutAlign="center center" class="titleBar">
 
     <mat-card [style.background]="note?.color" *ngFor="let note of NoteArray" class="notes" >
-
 
         <div (click)="openDialog(note)" >
             {{note.title}}
@@ -11,8 +10,7 @@
             {{note.description}}
         </div>
         <br><br>
-        
-        
+ 
         <app-icons [notecard]="note" class="classIcon"></app-icons>
         
     </mat-card>

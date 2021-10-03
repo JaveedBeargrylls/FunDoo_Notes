@@ -35,8 +35,8 @@ export class DashboardComponent implements OnInit {
 
   openDialogLabels(){
     const dialogRef = this.dialog.open(EditLabelComponent, {
-      width: '300px',
-      height: '200px',
+      width: '370px',
+      height: '',
       // data: labeldata
     });
 
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
           
           
           // console.log("noteList ",this.labelList)
-          this.snackBar.open('Archived','',{duration:2000,})
+          // this.snackBar.open('Archived','',{duration:2000,})
 
         },
         
@@ -68,4 +68,7 @@ export class DashboardComponent implements OnInit {
           this.snackBar.open('Error Occured','try Again',{duration:2000,})
         });
       }
+  refresh(){
+    location.reload();
+  }
 }

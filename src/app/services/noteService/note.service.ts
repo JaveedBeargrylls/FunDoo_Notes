@@ -163,6 +163,38 @@ createLabels(data:any) : Observable<any>{
 
 }
 
+/****************labelService*****DELETE*******/
+deleteLabels(data:any) : Observable<any>{
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+    
+  };
+  console.log('Id of label',data.label.id);
+  console.log(httpAuthOptions); // to check the value of httpAuthOptions to get ride of an error 
+
+  return this.httpService.deleteLabel(this.BaseUrl +'/noteLabels/'+data.label.id+'/deleteNoteLabel',data, true);
+
+}
+
+/****************labelService*****DELETE*******/
+updateLabels(data:any) : Observable<any>{
+  let httpAuthOptions = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.token
+    })
+    
+  };
+  console.log('Id of label',data);
+  console.log(httpAuthOptions); // to check the value of httpAuthOptions to get ride of an error 
+
+  return this.httpService.postService(this.BaseUrl +'/noteLabels/'+data.label.id+'/updateNoteLabel',data, true,httpAuthOptions);
+
+}
+
 /****************labelService*****GET*******/
 getLabels(){
   let httpAuthOptions = {
