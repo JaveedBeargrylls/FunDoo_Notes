@@ -188,10 +188,10 @@ updateLabels(data:any) : Observable<any>{
     })
     
   };
-  console.log('Id of label',data);
+  console.log('Id of label',data.id);
   console.log(httpAuthOptions); // to check the value of httpAuthOptions to get ride of an error 
 
-  return this.httpService.postService(this.BaseUrl +'/noteLabels/'+data.label.id+'/updateNoteLabel',data, true,httpAuthOptions);
+  return this.httpService.postService(this.BaseUrl +'/noteLabels/'+data.id+'/updateNoteLabel',data, true,httpAuthOptions);
 
 }
 

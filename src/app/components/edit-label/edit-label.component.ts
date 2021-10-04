@@ -113,8 +113,8 @@ export class EditLabelComponent implements OnInit {
         this.show = true;
 
         let data = {
-          label: labeldata,
-          isDeleted: false,
+          id: labeldata.id,
+          label: labeldata.label,
           userId: localStorage.getItem('userId')
     
         }
